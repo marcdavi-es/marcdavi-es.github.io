@@ -1,0 +1,106 @@
+@charset "UTF-8";
+
+/*!
+Animate.css - http://daneden.me/animate
+Licensed under the MIT license - http://opensource.org/licenses/MIT
+
+Copyright (c) 2015 Daniel Eden
+*/
+
+.animated {
+  -webkit-animation-duration: 0.5s;
+  animation-duration: 0.5s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.animated.infinite {
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes wobble {
+  0% {
+    -webkit-transform: none;
+    transform: none;
+  }
+
+  15% {
+    -webkit-transform: translate3d(-1%, 0, 0) rotate3d(0, 0, 1, -7.5deg);
+    transform: translate3d(-1%, 0, 0) rotate3d(0, 0, 1, -7.5deg);
+  }
+
+  30% {
+    -webkit-transform: translate3d(1%, 0, 0) rotate3d(0, 0, 1, 7.5deg);
+    transform: translate3d(1%, 0, 0) rotate3d(0, 0, 1, 7.5deg);
+  }
+
+  45% {
+    -webkit-transform: translate3d(-1%, 0, 0) rotate3d(0, 0, 1, -5deg);
+    transform: translate3d(-1%, 0, 0) rotate3d(0, 0, 1, -5deg);
+  }
+
+  60% {
+    -webkit-transform: translate3d(1%, 0, 0) rotate3d(0, 0, 1, 5deg);
+    transform: translate3d(1%, 0, 0) rotate3d(0, 0, 1, 5deg);
+  }
+
+  75% {
+    -webkit-transform: translate3d(-1%, 0, 0) rotate3d(0, 0, 1, -3deg);
+    transform: translate3d(-1%, 0, 0) rotate3d(0, 0, 1, -3deg);
+  }
+
+  100% {
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@keyframes wobble {
+  0% {
+    -webkit-transform: none;
+    -ms-transform: none;
+    transform: none;
+  }
+
+  15% {
+    -webkit-transform: translate3d(-1%, 0, 0) rotate3d(0, 0, 1, -7.5deg);
+    -ms-transform: translate3d(-1%, 0, 0) rotate3d(0, 0, 1, -7.5deg);
+    transform: translate3d(-1%, 0, 0) rotate3d(0, 0, 1, -7.5deg);
+  }
+
+  30% {
+    -webkit-transform: translate3d(1%, 0, 0) rotate3d(0, 0, 1, 7.5deg);
+    -ms-transform: translate3d(1%, 0, 0) rotate3d(0, 0, 1, 7.5deg);
+    transform: translate3d(1%, 0, 0) rotate3d(0, 0, 1, 7.5deg);
+  }
+
+  45% {
+    -webkit-transform: translate3d(-1%, 0, 0) rotate3d(0, 0, 1, -5deg);
+    -ms-transform: translate3d(-1%, 0, 0) rotate3d(0, 0, 1, -5deg);
+    transform: translate3d(-1%, 0, 0) rotate3d(0, 0, 1, -5deg);
+  }
+
+  60% {
+    -webkit-transform: translate3d(1%, 0, 0) rotate3d(0, 0, 1, 5deg);
+    -ms-transform: translate3d(1%, 0, 0) rotate3d(0, 0, 1, 5deg);
+    transform: translate3d(1%, 0, 0) rotate3d(0, 0, 1, 5deg);
+  }
+
+  75% {
+    -webkit-transform: translate3d(-1%, 0, 0) rotate3d(0, 0, 1, -3deg);
+    -ms-transform: translate3d(-1%, 0, 0) rotate3d(0, 0, 1, -3deg);
+    transform: translate3d(-1%, 0, 0) rotate3d(0, 0, 1, -3deg);
+  }
+
+  100% {
+    -webkit-transform: none;
+    -ms-transform: none;
+    transform: none;
+  }
+}
+
+.wobble {
+  -webkit-animation-name: wobble;
+  animation-name: wobble;
+}
