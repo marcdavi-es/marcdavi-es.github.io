@@ -16,7 +16,6 @@
 	function removeEventListeners () {
 		d.removeEventListener('keypress', keyPressListener);
 		submit.removeEventListener('click', clickListener);
-		console.log('once');
 	}
 
 	function keyPressListener (e) {
@@ -67,7 +66,7 @@
 		if (!r) {
 		  throw new Error('CORS not supported');
 		}
-		// r.withCredentials = true;
+		r.withCredentials = true;
 		r.onreadystatechange = function () {
 		  	if (r.readyState != 4 || r.status != 200) return;
 		  	handler(submit, r);
