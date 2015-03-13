@@ -16,11 +16,12 @@
             <!--[if lte IE 8]>
                 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
             <![endif]-->
-
+            <iframe name="no-target" id="no-target" style="display:none;">
+            </iframe>
             <div class="row" id="contact-form-container">
                 <!-- https://docs.google.com/forms/d/1vkLhamXuY8iWTUtR0LUzRxv6Cen7XJSUNLIs8EKekiI/viewform -->
-                <div id="contact-form" action="https://docs.google.com/forms/d/1vkLhamXuY8iWTUtR0LUzRxv6Cen7XJSUNLIs8EKekiI/formResponse?" method="POST" target="no-target">
-                    <form>
+                <div id="contact-form">
+                    <form id="form" action="" method="POST" target="no-target">
                         <input id="email" type="email" placeholder="Your email" name="entry.1990879575">
                         <textarea id="message-input" type="text" maxlength="500" rows="80" placeholder="A short message for Marc" name="entry.1619043713"></textarea>
                         <div class="cta cta-primary" id="submit" tabindex="0">Send</div>
@@ -34,6 +35,7 @@
                     <p>back to<a href="../"> marcdavi.es</a></p>
                 </div>
             </div>
+
 
         </div>
 

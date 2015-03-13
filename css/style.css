@@ -209,6 +209,7 @@ input:focus, textarea:focus {
 
 @media screen and (max-width: 500px) {
 	h1 {
+		font-size: 2em;
 		margin-top: 0;
 	}
 

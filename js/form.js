@@ -1,7 +1,9 @@
 (function init () {
 
 	var d = document, 
-		submit = d.getElementById('submit');
+		submit = d.getElementById('submit'),
+		error = d.getElementById('error'),
+		backHome = d.getElementById('back-home');
 
 	d.addEventListener('DOMContentLoaded', function (e) {
 		e.preventDefault();
@@ -30,12 +32,10 @@
 
 	function formSubmit (e) {
 		e.preventDefault;
+		hide(error);
 		removeEventListeners(); 
-		// animate button
 		changeToSending(submit);
-		// process form data
 		var submitURL = buildURL();
-		// ajax the motherfucker
 		postFormData(submitURL);
 	}
 
@@ -46,7 +46,7 @@
 			inputs = '';
 
 		for (var i = 0; i < ids.length; i++) {
-			var element = document.getElementById(ids[i]),
+			var element = d.getElementById(ids[i]),
 				name = element.getAttribute('name');
 				value = encodeURIComponent(element.value);
 				input = name + '=' + value + '&';
@@ -54,7 +54,7 @@
 			inputs = (inputs + input);
 		};
 
-		var	baseURL = document.getElementById('contact-form').getAttribute('action'),
+		var	baseURL = 'https://docs.google.com/forms/d/1vkLhamXuY8iWTUtR0LUzRxv6Cen7XJSUNLIs8EKekiI/formResponse?',
 			submitRef = 'submit=Submit',
 			submitURL = (baseURL + inputs + submitRef);
 
@@ -62,24 +62,30 @@
 	}
 
 	function postFormData (url) {
-		var r = createCORSRequest('POST', url);
-		if (!r) {
-		  throw new Error('CORS not supported');
-		}
-		r.withCredentials = true;
-		r.onreadystatechange = function () {
-		  	if (r.readyState != 4 || r.status != 200) return;
-		  	handler(submit, r);
-		}
-		r.send();
+		var form = d.getElementById('form'),
+			validateFlag = validate();
+		form.action = url;
+		handler(validateFlag, form, submit);
 	}
 
-	function handler (element, r) {
+	function validate () {
+		var regexp = /[a-z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+\/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+(?:[A-Z]{2}|com|org|net|edu|gov|mil|biz|info|mobi|name|aero|asia|jobs|museum)\b/i,
+			email = d.getElementById('email'),
+			messageInput = d.getElementById('message-input');
+		if (regexp.test(email.value) && !!messageInput.value) return true;
+		return false;		
+	}
+
+	function handler (flag, form, element) {
+
 		setTimeout(function(){
-			/Your\sresponse\shas\sbeen\srecorded/.exec(r.responseText) ? 
-				changeToSent(element) :
-				showError(element)
-		}, 4000);
+			if (flag) { 
+				form.submit()
+				changeToSent(element);
+			} else {
+				showError(element);
+			}
+		}, 2000);
 	}
 
 	function changeToSending (element, string) {
@@ -93,27 +99,25 @@
 	}
 
 	function changeToSent (element) {
-		var backHome = document.getElementById('back-home'),
-			error = document.getElementById('error');
 		element.classList.add('complete');
 		element.classList.remove('disabled');
 		fadeText(element, false);
 		element.dotterFlag = true;
 		setTimeout(function(){
-			error.classList.remove('visible');
-			backHome.classList.add('visible');
-			element.textContent = 'Sent!  Marc will be in touch';
+			element.innerHTML = 'Sent! <nbr> Marc will be in touch';
 			element.removeAttribute('style');
 		}, 600);
+		setTimeout(function(){
+			show(backHome);
+		}, 700);
 	}
 
 	function showError (element) {
-		var error = document.getElementById('error');
 		fadeText(element, false);
 		element.dotterFlag = true;
 		setTimeout(function(){
 			element.classList.remove('disabled');
-			error.classList.add('visible');
+			show(error);
 			element.textContent = 'Try again';
 			element.removeAttribute('style');
 		}, 400);
@@ -204,6 +208,12 @@
 		return xhr;
 	}
 
+	function show (element) {
+		element.classList.add('visible');
+	}
 
+	function hide (element) {
+		element.classList.remove('visible');
+	}
 
 })();
