@@ -91,9 +91,13 @@ input:focus, textarea:focus {
 	width: 38%
 }
 
-.top-gutter {
+.top-gutter, .bottom-gutter {
 	height: 10em;
 	width: 100%;
+}
+
+.bottom-gutter {
+	clear: both;
 }
 
 .cta {
@@ -196,13 +200,13 @@ input:focus, textarea:focus {
 }
 
 @media screen and (max-width: 800px) {
-	.top-gutter {
+	.top-gutter, .bottom-gutter {
 		height: 5em;
 	}
 }
 
 @media screen and (max-width: 600px) {
-	.top-gutter {
+	.top-gutter, .bottom-gutter {
 		height: 2em;
 	}
 }
