@@ -1,11 +1,11 @@
 @font-face {
     font-family: "SourceSansProRegular";
-    src: url(SourceSansPro-Regular.otf) format("opentype");
+    src: url(./assets/SourceSansPro-Regular.otf) format("opentype");
 }
 
 @font-face {
     font-family: "SourceSansProLight";
-    src: url(SourceSansPro-Light.otf) format("opentype");
+    src: url(./assets/SourceSansPro-Light.otf) format("opentype");
 }
 
 ::selection {
