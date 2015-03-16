@@ -3,8 +3,7 @@
   var d = document,
   		more = d.getElementById("more"),
   		moreText = d.getElementById("more-text"),
-      getInTouch = d.getElementById("get-in-touch"),
-      contactForm = d.getElementById("contact-form");
+      getInTouch = d.getElementById("get-in-touch");
 
   d.addEventListener("DOMContentLoaded", function (e) {
     
@@ -23,12 +22,6 @@
 
       setTimeout(wobble, 1000);
     	
-    })
-
-    getInTouch.addEventListener("click", function (e) {
-      
-      e.preventDefault;
-
     })
 
   });

@@ -11,13 +11,19 @@
 	}); 
 
 	function addEventListeners () {
-		d.addEventListener('keypress', keyPressListener);
+		d.addEventListener('keypress', killEnter);
+		submit.addEventListener('keypress', keyPressListener);
 		submit.addEventListener('click', clickListener);
 	}
 
 	function removeEventListeners () {
-		d.removeEventListener('keypress', keyPressListener);
+		submit.removeEventListener('keypress', keyPressListener);
 		submit.removeEventListener('click', clickListener);
+	}
+
+	function killEnter (e) {
+		e.preventDefault;
+		if (e.keyCode === 13) return false;
 	}
 
 	function keyPressListener (e) {
