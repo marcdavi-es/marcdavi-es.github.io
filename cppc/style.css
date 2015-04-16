@@ -111,6 +111,7 @@ h1 {
 .form-container { 
 	display: inline-block; 
 	margin-left: -10em; 
+	width: 20em;
 }
 
 form {
